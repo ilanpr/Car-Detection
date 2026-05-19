@@ -12,3 +12,41 @@ img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
+
+fig, axes = plt.subplots(2, 3, figsize=(18, 10))
+axes[0,0].imshow(img_rgb);               axes[0,0].set_title("Original");    axes[0,0].axis("off")
+axes[0,1].imshow(gray, cmap="gray");     axes[0,1].set_title("Grayscale");   axes[0,1].axis("off")
+axes[0,2].imshow(lab[:,:,0], cmap="gray");  axes[0,2].set_title("LAB - L"); axes[0,2].axis("off")
+axes[1,0].imshow(hsv[:,:,2], cmap="gray");  axes[1,0].set_title("HSV - V"); axes[1,0].axis("off")
+axes[1,1].imshow(lab[:,:,1], cmap="RdYlGn"); axes[1,1].set_title("LAB - A"); axes[1,1].axis("off")
+axes[1,2].imshow(lab[:,:,2], cmap="coolwarm"); axes[1,2].set_title("LAB - B"); axes[1,2].axis("off")
+plt.suptitle("Eksplorasi Color Space", fontsize=14)
+plt.tight_layout()
+
+blur = cv2.GaussianBlur(gray, (7, 7), 2)
+
+plt.figure(figsize=(10, 6))
+plt.imshow(blur, cmap="gray")
+plt.title("Setelah Gaussian Blur 7x7")
+plt.axis("off")
+plt.savefig("output/Hasil Olah/02_blur.png", dpi=100)
+plt.close()
+
+otsu_val, thresh_terang = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+_, thresh_gelap = cv2.threshold(blur, 72, 255, cv2.THRESH_BINARY_INV)
+
+gabungan = cv2.bitwise_or(thresh_terang, thresh_gelap)
+
+fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+axes[0].imshow(thresh_terang, cmap="gray"); axes[0].set_title(f"Otsu (thr={otsu_val:.0f}) - mobil terang"); axes[0].axis("off")
+axes[1].imshow(thresh_gelap,  cmap="gray"); axes[1].set_title("Inv thr=72 - mobil gelap");                  axes[1].axis("off")
+axes[2].imshow(gabungan,      cmap="gray"); axes[2].set_title("Gabungan");                                   axes[2].axis("off")
+plt.suptitle("Dual Thresholding", fontsize=13)
+plt.tight_layout()
+plt.savefig("output/Hasil Olah/03_threshold.png", dpi=100)
+plt.close()
+
+
+
+plt.savefig("output/Hasil Olah/01_color_spaces.png", dpi=100)
+plt.close()
