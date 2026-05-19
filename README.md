@@ -29,7 +29,8 @@ Pendekatan yang dipakai adalah hybrid — gabungan dual threshold, morfologi, da
 
 Sebelum mulai processing, gambarnya dilihat dulu di berbagai color space (Grayscale, LAB, HSV) buat nyari mana yang paling bisa bedain mobil sama aspal. Hasilnya grayscale cukup bagus — aspal nilainya sekitar 100-145, mobil terang di atas itu dan mobil gelap di bawahnya.
 
-![Color Space](output/Hasil%20Olah/01_color_spaces.png)
+![Color Space](<img width="1800" height="1000" alt="01_color_spaces" src="https://github.com/user-attachments/assets/80a1b7b6-f4aa-4fd0-ab2b-1049217488d8" />
+)
 
 ---
 
@@ -41,7 +42,8 @@ blur = cv2.GaussianBlur(gray, (7, 7), 2)
 
 Blur 7x7 dipilih buat ngurangin noise tekstur aspal. Kalau kernel terlalu kecil kurang ngaruh, terlalu besar ntar tepi mobilnya ikut blur juga.
 
-![Blur](output/Hasil%20Olah/02_blur.png)
+![Blur](<img width="1000" height="600" alt="02_blur" src="https://github.com/user-attachments/assets/3ff4ee67-bd8d-4326-971e-f52ec2776b58" />
+)
 
 ---
 
@@ -58,7 +60,8 @@ Pakai dua threshold karena:
 - **Fixed inverse (72)** → nangkep mobil gelap (hitam, biru tua)
 - Keduanya di-OR biar semua mobil ketangkep
 
-![Threshold](output/Hasil%20Olah/03_threshold.png)
+![Threshold](<img width="1800" height="500" alt="03_threshold" src="https://github.com/user-attachments/assets/9ca7e5e8-5099-4a48-aa7b-b4f3760235bc" />
+)
 
 ---
 
@@ -74,7 +77,8 @@ closed = cv2.morphologyEx(opened,   cv2.MORPH_CLOSE, kernel_close)
 
 Kernel ellipse dipilih karena lebih natural untuk bentuk mobil dibanding kotak.
 
-![Morfologi](output/Hasil%20Olah/04_morfologi.png)
+![Morfologi](<img width="1800" height="500" alt="04_morfologi" src="https://github.com/user-attachments/assets/8a8765f3-0fbf-4210-8f05-967c229d3d0f" />
+)
 
 ---
 
@@ -93,7 +97,8 @@ _, sure_fg = cv2.threshold(dist, 0.45 * dist.max(), 255, 0)
 markers = cv2.watershed(img.copy(), markers)
 ```
 
-![Watershed](output/Hasil%20Olah/05_watershed.png)
+![Watershed](<img width="1800" height="500" alt="05_watershed" src="https://github.com/user-attachments/assets/a3c27cce-a26d-4961-a1fd-42b1e5f1af6f" />
+)
 
 ---
 
@@ -113,7 +118,8 @@ Yang lolos filter dikasih bounding box hijau + nomor.
 
 ## Visualisasi Hasil
 
-![Perbandingan](output/Hasil%20Olah/06_perbandingan.png)
+![Perbandingan](<img width="2000" height="900" alt="06_perbandingan" src="https://github.com/user-attachments/assets/070c9e97-e37b-4335-9ee6-a4301b2a9372" />
+)
 
 ---
 
