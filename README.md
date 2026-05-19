@@ -1,4 +1,4 @@
-#Object Counting (Parkiran Aerial)
+# Object Counting
 
 **Nama:** Ilan Hawwari Prasojo  
 **NRP:** 5024241039 
