@@ -112,8 +112,7 @@ Yang lolos filter dikasih bounding box hijau + nomor.
 
 ## Visualisasi Hasil
 
-![Perbandingan](<img width="2000" height="900" alt="06_perbandingan" src="https://github.com/user-attachments/assets/070c9e97-e37b-4335-9ee6-a4301b2a9372" />
-)
+<img src="output/Hasil%20Olah/06_perbandingan.png" width="800" alt="Perbandingan">
 
 ---
 
