@@ -28,8 +28,7 @@ Pendekatan yang dipakai adalah hybrid — gabungan dual threshold, morfologi, da
 
 Sebelum mulai processing, gambarnya dilihat dulu di berbagai color space (Grayscale, LAB, HSV) buat nyari mana yang paling bisa bedain mobil sama aspal. Hasilnya grayscale cukup bagus — aspal nilainya sekitar 100-145, mobil terang di atas itu dan mobil gelap di bawahnya.
 
-![Color Space](<img width="1800" height="1000" alt="01_color_spaces" src="https://github.com/user-attachments/assets/80a1b7b6-f4aa-4fd0-ab2b-1049217488d8" />
-)
+<img src="output/Hasil%20Olah/01_color_spaces.png" width="800" alt="Color Space">
 
 ---
 
