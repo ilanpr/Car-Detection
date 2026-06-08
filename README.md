@@ -73,8 +73,7 @@ closed = cv2.morphologyEx(opened,   cv2.MORPH_CLOSE, kernel_close)
 
 Kernel ellipse dipilih karena lebih natural untuk bentuk mobil dibanding kotak.
 
-![Morfologi](<img width="1800" height="500" alt="04_morfologi" src="https://github.com/user-attachments/assets/8a8765f3-0fbf-4210-8f05-967c229d3d0f" />
-)
+<img src="output/Hasil%20Olah/04_morfologi.png" width="800" alt="Morfologi">
 
 ---
 
@@ -93,8 +92,7 @@ _, sure_fg = cv2.threshold(dist, 0.45 * dist.max(), 255, 0)
 markers = cv2.watershed(img.copy(), markers)
 ```
 
-![Watershed](<img width="1800" height="500" alt="05_watershed" src="https://github.com/user-attachments/assets/a3c27cce-a26d-4961-a1fd-42b1e5f1af6f" />
-)
+<img src="output/Hasil%20Olah/05_watershed.png" width="800" alt="Watershed">
 
 ---
 
