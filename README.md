@@ -40,8 +40,7 @@ blur = cv2.GaussianBlur(gray, (7, 7), 2)
 
 Blur 7x7 dipilih buat ngurangin noise tekstur aspal. Kalau kernel terlalu kecil kurang ngaruh, terlalu besar ntar tepi mobilnya ikut blur juga.
 
-![Blur](<img width="1000" height="600" alt="02_blur" src="https://github.com/user-attachments/assets/3ff4ee67-bd8d-4326-971e-f52ec2776b58" />
-)
+<img src="output/Hasil%20Olah/02_blur.png" width="800" alt="Blur">
 
 ---
 
@@ -58,8 +57,7 @@ Pakai dua threshold karena:
 - **Fixed inverse (72)** → nangkep mobil gelap (hitam, biru tua)
 - Keduanya di-OR biar semua mobil ketangkep
 
-![Threshold](<img width="1800" height="500" alt="03_threshold" src="https://github.com/user-attachments/assets/9ca7e5e8-5099-4a48-aa7b-b4f3760235bc" />
-)
+<img src="output/Hasil%20Olah/03_threshold.png" width="800" alt="Threshold">
 
 ---
 
